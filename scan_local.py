@@ -48,6 +48,8 @@ def scan_music_directory(music_dir: str) -> dict:
                 continue
 
             full_path = os.path.join(dirpath, filename)
+            if os.path.getsize(full_path) == 0:
+                continue
             rel = Path(full_path).relative_to(music_root)
             parts = rel.parts
 
